@@ -1,0 +1,85 @@
+=== Module C ECSL Algorithm Coverage Audit ===
+doc_md = /Users/aurora/Documents/structlift/StrucLift_ModuleC_ECSL_方案.md
+repo_root = /Users/aurora/Documents/structlift
+
+total_items = 34
+status_dist = [('implemented', 16), ('partial', 8), ('keep_external', 5), ('keep_training_stage', 5)]
+phase_dist = [('Phase 3', 6), ('Phase 1', 5), ('Phase 2', 4), ('Phase 4', 4), ('Phase 5', 4), ('Phase 2 / Section 9', 2), ('Phase 1 / Phase 3', 1), ('Phase 1 / Phase 5', 1), ('Phase 1 / Phase 11', 1), ('Phase 2 / Section 8', 1), ('Phase 2 / Phase 4', 1), ('Phase 4 / Section 11', 1), ('Gate', 1), ('Curriculum', 1), ('Experiment', 1)]
+
+-- items --
+[implemented] Curriculum curriculum_manifest :: Curriculum shards/manifest (evidence_keywords=3/3)
+  note: Packer writes bucketed JSONL shards.
+[implemented] Gate b_gate :: B skeleton reliability gate (evidence_keywords=4/4)
+  note: Gate prevents failed B skeletons from becoming hard supervision.
+[implemented] Phase 1 observable_semantics :: Obs(slot) observable semantics contract (evidence_keywords=3/3)
+  note: Observable items are declared; equivalence proof is V2/V3.
+[implemented] Phase 1 semantic_slot_schema :: SemanticSlot schema for skeleton-compatible slot contracts (evidence_keywords=3/3)
+  note: O0/Lite schema is implemented without source AST projection.
+[implemented] Phase 1 skeleton_cfg_schema :: SkeletonCFG schema around fixed Module-B skeleton (evidence_keywords=3/3)
+  note: Metadata-only CFG wrapper exists; full AST parser is not needed for O0.
+[implemented] Phase 1 skeleton_slot_lowerer :: Skeleton Slot Lowerer from placeholders to anchors (evidence_keywords=3/3)
+  note: Text-based lowerer preserves Module-B skeleton tokens.
+[implemented] Phase 1 / Phase 11 attention_mask_contract :: Three-ring attention mask contract (evidence_keywords=4/4)
+  note: Region/boundary rings exist; dataflow ring becomes richer after V2 extraction.
+[implemented] Phase 1 / Phase 3 slot_grammar_checker :: Slot grammar checker (evidence_keywords=3/3)
+  note: Local V0 now combines slot grammar with a compiler-backed C stub when --v0-cc is available.
+[implemented] Phase 1 / Phase 5 deterministic_renderer :: Deterministic renderer preserving non-placeholder skeleton tokens (evidence_keywords=3/3)
+  note: Renderer is used for V1 smoke validation and decode-seed audit.
+[implemented] Phase 2 / Section 9 semantic_match_cost :: Semantic matching cost matrix components (evidence_keywords=3/3)
+  note: Cost object is auditable; unavailable semantic dimensions are marked not_available.
+[implemented] Phase 3 confidence_scorer :: Confidence scorer C0-C5 with hard CE policy (evidence_keywords=4/4)
+  note: C1 priors are kept out of hard CE; C2 comes from V2 and C3+ from V3 evidence.
+[implemented] Phase 3 human_semantic_audit_workflow :: Manual semantic audit path for strong slot evidence when automatic V3 backend is unavailable (evidence_keywords=4/4)
+  note: Human audit can promote reviewed slot fills into hard SFT evidence; it is reported separately from automatic V3.
+[implemented] Phase 3 v0_validator :: V0 parser/type/slot grammar validator (evidence_keywords=3/3)
+  note: V0 implements parser/type/local-stub validation locally; if the compiler is missing it reports grammar-only pass instead of silent failure.
+[implemented] Phase 4 multi_reference_sft_manifest :: Confidence-weighted multi-reference SFT records/manifest (evidence_keywords=3/3)
+  note: Data packer is implemented; it does not run the trainer.
+[implemented] Phase 4 / Section 11 module_c_input_output_format :: Module-C input prompt and structured slot-patch output (evidence_keywords=3/3)
+  note: Training record uses structured slot patch output rather than free full-function text.
+[implemented] Phase 5 global_decode_seed :: Per-slot k-candidate table for global decoding (evidence_keywords=3/3)
+  note: Seed table exists; it is not the final ILP/beam solver.
+[partial] Experiment metrics_ablation_hooks :: Metrics and ablation hooks (evidence_keywords=4/4)
+  note: Reports expose counts/distributions; full experimental ablation runner is not implemented.
+[partial] Phase 1 unified_ir_lite :: Unified IR lowering for source/binary/skeleton comparison (evidence_keywords=4/4)
+  note: Skeleton IR and partial binary refs exist; source lowering is explicitly KEEP_EXTERNAL.
+[partial] Phase 2 binary_ir_candidate_extractor :: Binary IR candidate extractor (evidence_keywords=4/4)
+  note: O1 candidates plus V3-lite synthetic binary candidates cover simple condition/control cases; block/effect synthesis remains partial.
+[partial] Phase 2 source_cfg_ssa_candidate_extractor :: Source CFG/SSA candidate extractor (evidence_keywords=5/5)
+  note: Source CFG/SSA remains external, but concrete source-teacher projection candidates can now be injected as C2 candidates for downstream validators.
+[partial] Phase 2 / Section 8 rewrite_candidate_generators :: Explicit rewrite candidate generators (evidence_keywords=5/5)
+  note: Rewrite request objects are emitted; concrete text rewrites require external verifier-backed synthesis.
+[partial] Phase 3 v1_validator :: V1 skeleton/CFG successor preservation validator (evidence_keywords=3/3)
+  note: Skeleton immutability is implemented and successor metadata is audited; missing/polarity-ambiguous successor facts are demoted to needs-V3 rather than treated as proof.
+[partial] Phase 3 v2_validator :: V2 live-out/read-write/effect validator (evidence_keywords=4/4)
+  note: V2 distinguishes real empty/nonempty facts from proxy or missing facts; proxy evidence can feed V3 tasks but is not clean C2 proof.
+[partial] Phase 5 global_rerank_audit :: Global decode/render smoke audit (evidence_keywords=3/3)
+  note: Top-1 deterministic render audit exists; full compile/execution reranker is external.
+[keep_external] Phase 2 execution_trace_candidate_extractor :: Execution trace candidate extractor (evidence_keywords=3/3)
+  note: Trace candidate hook is present; actual trace collection is external.
+[keep_external] Phase 2 llm_proposal_generator :: LLM proposal generator (evidence_keywords=3/3)
+  note: Prompt/request records are emitted; no model call is performed here.
+[keep_external] Phase 2 / Section 9 uot_matching :: Unbalanced Optimal Transport matching (evidence_keywords=3/3)
+  note: UOT contract and policies are recorded; actual solver is not connected.
+[keep_external] Phase 3 v3_validator :: V3 trace/symbolic/differential execution validator (evidence_keywords=5/5)
+  note: External JSONL/command hook and task export are implemented; real full trace/symbolic/differential backend remains external. Source projection/V3-lite are rejected as hard V3 by default.
+[keep_external] Phase 5 full_function_validation :: Full-function compile/execution validation (evidence_keywords=4/4)
+  note: Feature slots are named in decode seed; compiler/execution harness is not run.
+[keep_training_stage] Phase 2 / Phase 4 self_training_candidate_hook :: Self-training candidate hook (evidence_keywords=3/3)
+  note: Future model predictions can be routed in; current script does not self-train.
+[keep_training_stage] Phase 4 consistency_training_plan :: Consistency training plan (evidence_keywords=3/3)
+  note: Manifest records views and requirements; training loop is not implemented here.
+[keep_training_stage] Phase 4 latent_em_plan :: Latent EM optional plan (evidence_keywords=3/3)
+  note: Manifest records the training-stage plan and guardrails.
+[keep_training_stage] Phase 4 self_training_plan :: Self-training plan (evidence_keywords=3/3)
+  note: Promotion rule exists; actual iterative self-training is a later stage.
+[keep_training_stage] Phase 5 grpo_reward_plan :: GRPO/RL reward plan (evidence_keywords=3/3)
+  note: Manifest records the reward-stage constraints; no RL training loop is implemented.
+
+-- warnings --
+- V2 is a conservative local contract gate; real empty facts, proxy facts, and missing facts are reported separately.
+- V3-lite is diagnostic only by default; full trace/symbolic/differential coverage requires an external backend.
+- Compile smoke and source-teacher projection are not semantic V3 proof.
+- Human audit workflow can provide hard SFT evidence for reviewed slots, but it is not automatic V3.
+- LLM generation, actual SFT/EM/consistency/self-training/GRPO loops are not run by these builders.
+- Global decode audit is render-only unless a compiler/execution validator is supplied through the V3 hooks.

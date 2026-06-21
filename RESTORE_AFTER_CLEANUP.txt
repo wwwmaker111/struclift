@@ -1,0 +1,39 @@
+================================================================================
+「精简仓库」后可恢复项说明（对照此前对话中删除的内容）
+================================================================================
+
+一、代码与构建脚本
+------------------
+若你当前已从备份 / 另一台机器 / 压缩包拷回仓库，应能看到：
+  - struclift/          完整 Python 包
+  - requirements.txt
+  - build_binskel_dataset_md.py
+  - scripts/            内含 compile_*.sh、build_*_binskel.sh、augment_binskel_sft.py、
+                        rebuild_loss_datasets_full.sh、train_stage{1..4}_binskel.py 等
+
+若 scripts/ 或根目录脚本缺失：只能从备份或 Git 远程重新拷贝整个仓库，无法凭空生成。
+
+二、无法从「代码仓库」恢复、需自行拷贝或重跑的内容
+------------------------------------------------
+  - checkpoints/      训练权重（请从备份或训练服务器 scp 回来）
+  - *.jsonl 数据集    请从备份或按 scripts/rebuild_loss_datasets_full.sh 重新构建
+  - 日志文件          仅能从备份恢复
+  - .venv/            勿提交版本库；在本地用下面命令重建即可
+
+三、重建虚拟环境（Windows PowerShell，在仓库根执行）
+------------------------------------------------
+  python -m venv .venv
+  .\.venv\Scripts\Activate.ps1
+  pip install -U pip
+  pip install -r requirements.txt
+
+四、重建数据集（Linux / WSL，在仓库根执行）
+----------------------------------------
+  见 scripts/rebuild_loss_datasets_full.sh 文件头注释；
+  或：bash scripts/total_control_rebuild_loss_datasets.sh
+
+五、本仓库已预建空目录
+----------------------
+  checkpoints/、logs/、data/ 下含 .gitkeep，便于你放入权重、日志、本地 jsonl 路径。
+
+================================================================================

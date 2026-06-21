@@ -1,0 +1,19 @@
+{
+  "training": {
+    "s3_epochs": 1,
+    "s3_batch_size": 1,
+    "s3_lr": 1e-4,
+    "num_workers": 0,
+    "fp16": true,
+    "llm_gradient_checkpointing": true,
+    "llm_load_in_8bit": true,
+    "s3_scheduled_sampling_max_p": 0.0,
+    "s3_scheduled_sampling_start": 1.0,
+    "s3_max_sft_seq_len": 2048
+  },
+  "module_d": {
+    "rl_epochs": 1,
+    "num_candidates": 2,
+    "rl_lr": 5e-6
+  }
+}

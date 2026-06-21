@@ -1,0 +1,27 @@
+# Large generated or dependency directories
+__pycache__/
+.venv/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.cache/
+node_modules/
+scripts/svg_flowchart_pptx/node_modules/
+
+# Build and training artifacts
+checkpoints/
+logs/
+dist/
+build/
+coverage/
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.safetensors
+*.log
+
+# Dataset files can be very large and should be read explicitly when needed.
+data/*.jsonl
+datasets/*.jsonl
+*.jsonl

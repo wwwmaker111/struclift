@@ -1,0 +1,58 @@
+# 45 个 binskel 数据集（9 项目 × O0/O1/O2/O3/Os）：构建、统计、结构/语义判定 — 命令行备忘
+# 在 Linux / WSL 下执行；仓库根设为 STRUCTLIFT（含 scripts/、build_binskel_dataset_md.py）。
+
+# -----------------------------------------------------------------------------
+# 一、数据从哪来（与 scripts/rebuild_binskel_all_9.sh 一致）
+# -----------------------------------------------------------------------------
+# 需先有各项目编译产物（ELF + 合并 .ll），再生成 binskel_<proj>_o0..o3.jsonl 与 binskel_<proj>_os.jsonl（若跑 Os）。
+#
+# export OUT_ROOT=~/structlift_datasets
+# export ZLIB_DIR=... CURL_DIR=... SQLITE_DIR=... BUSYBOX_DIR=... OPENSSL_DIR=...
+# export OPENSSH_DIR=... LIBXML2_DIR=... FFMPEG_DIR=... COREUTILS_DIR=...
+# bash scripts/rebuild_binskel_all_9.sh
+#
+# 仅 zlib 示例：bash scripts/compile_zlib.sh <base> && bash scripts/build_zlib_binskel.sh <zlib_dir> "$OUT_ROOT" "$STRUCTLIFT"
+#
+# Os 档单独流水线见 scripts/os_only/build_binskel_os_all_9.sh
+
+# -----------------------------------------------------------------------------
+# 二、批量统计（validate_align 同口径指标）
+# -----------------------------------------------------------------------------
+# python3 scripts/binskel_alignment_batch_stats.py --out-dir ~/structlift_datasets --all-default-paths
+
+# -----------------------------------------------------------------------------
+# 三、单文件校验（整体对齐指标）
+# -----------------------------------------------------------------------------
+# python3 scripts/validate_alignment.py ~/structlift_datasets/binskel_zlib_o0.jsonl
+
+# -----------------------------------------------------------------------------
+# 四、45 数据集 × 每数据集随机 N 条 — 结构监测 + 语义监测（推荐）
+# -----------------------------------------------------------------------------
+# 结构：M 与 block_src_lines、BB 覆盖率、顺序等（deep_validate + validate_sample）
+# 语义：check_alignment_semantics（主峰/高W vs tree-sitter 与 DWARF）
+#
+# 默认在以下目录查找 jsonl：--out-dir、~/structlift_datasets、~/struclift_wsl/datasets、/mnt/e/structlift* 等（见 binskel_alignment_batch_stats）
+#
+# export DATA_DIR=~/structlift_datasets
+# export RANDOM_PER_FILE=5
+# export SEED=42
+# bash scripts/run_45datasets_random_dual_monitor.sh
+#
+# 等价手写：
+# cd "$STRUCTLIFT"
+# python3 scripts/monitor_bb_alignment_dual.py --scan --all-default-paths \
+#   --out-dir "$DATA_DIR" --opt-levels 0,1,2,3,os \
+#   --random-per-file 5 --seed 42 --csv > bb_dual_random.csv
+#
+# 基本块粒度（每 BB 一行，sem_peak/sem_highw/struct_bb 等）：在上式中加 --by-bb；
+# 或 export BY_BB=1 后 bash scripts/run_45datasets_random_dual_monitor.sh
+#
+# 若某项目源码不在默认路径，请多次传入：
+#   --src-map zlib=/path/to/zlib_src --src-map curl=/path/to/curl ...
+
+# -----------------------------------------------------------------------------
+# 五、高置信函数抽样 + BB 级详情报告（非随机，与上条不同）
+# -----------------------------------------------------------------------------
+# python3 scripts/audit_training_readiness_samples.py --all-default-paths --preset-src-mnt-e \
+#   --opt-levels 0,1,2,3,os --per-dataset 3 --bb-preview 14 \
+#   --output training_readiness_audit_9x5x3.md

@@ -1,0 +1,1 @@
+# Full regen O0 + O1-O3 log - started at $(date)

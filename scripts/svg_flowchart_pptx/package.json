@@ -1,0 +1,19 @@
+{
+  "name": "svg_flowchart_pptx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node build_pptx_from_svg.cjs",
+    "build:train-exp": "node build_train_exp_flowchart_pptx.cjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@xmldom/xmldom": "^0.9.10",
+    "pptxgenjs": "^4.0.1"
+  }
+}

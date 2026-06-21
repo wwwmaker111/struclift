@@ -1,0 +1,9 @@
+{
+  "training": {
+    "s1_epochs": 10,
+    "s2_epochs": 1,
+    "s1_batch_size": 8,
+    "s2_batch_size": 8,
+    "num_workers": 0
+  }
+}

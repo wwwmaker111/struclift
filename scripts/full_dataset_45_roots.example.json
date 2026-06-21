@@ -1,0 +1,12 @@
+{
+  "_comment": "9 项目源码根（与 augment_binskel_sft --source-root 一致）。与 compile_sqlite（sqlite-3450100）、BUILD_BINSKEL_9x5_THREE_PARTS、rebuild_binskel_all_9 一致。复制为 full_dataset_45_roots.json 后按需改用户名。",
+  "zlib": "/home/wuqiongmin/struclift_wsl/datasets/zlib/zlib-1.3.1",
+  "curl": "/home/wuqiongmin/struclift_wsl/datasets/curl/curl-8.7.1",
+  "sqlite": "/home/wuqiongmin/struclift_wsl/datasets/sqlite/sqlite-3450100",
+  "busybox": "/home/wuqiongmin/struclift_wsl/datasets/busybox/busybox-1.36.1",
+  "openssl": "/home/wuqiongmin/struclift_wsl/datasets/openssl/openssl-3.3.1",
+  "libxml2": "/home/wuqiongmin/struclift_wsl/datasets/libxml2/libxml2-2.12.7",
+  "openssh": "/home/wuqiongmin/struclift_wsl/datasets/openssh/openssh-9.8p1",
+  "ffmpeg": "/home/wuqiongmin/struclift_wsl/datasets/ffmpeg/ffmpeg-7.1",
+  "coreutils": "/home/wuqiongmin/struclift_wsl/datasets/coreutils/coreutils-9.4"
+}

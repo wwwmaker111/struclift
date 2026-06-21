@@ -1,0 +1,8 @@
+# 精简/恢复后建议忽略（避免误提交大文件）
+.venv/
+__pycache__/
+*.pyc
+checkpoints/*.pt
+logs/
+data/*.jsonl
+*.log

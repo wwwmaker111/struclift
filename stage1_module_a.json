@@ -1,0 +1,11 @@
+{
+  "training": {
+    "s1_epochs": 500,
+    "s1_batch_size": 128,
+    "s1_lr": 0.0003,
+    "s1_early_stop_patience": 25,
+    "s1_early_stop_min_delta": 0.0001,
+    "s1_early_stop_min_epochs": 10,
+    "num_workers": 16
+  }
+}

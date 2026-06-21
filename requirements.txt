@@ -1,0 +1,20 @@
+# StrucLift — 完整依赖
+# ─────────────────── 核心训练框架 ───────────────────
+torch>=2.1
+numpy>=1.24
+scipy>=1.10
+
+# ─────────────────── 图神经网络 ─────────────────────
+torch-geometric>=2.4
+networkx>=3.0
+
+# ─────────────────── LLM 及参数高效微调 ─────────────
+transformers>=4.36
+peft>=0.7
+tokenizers>=0.15
+
+# ─────────────────── 数据集构建 (BinSkel) ───────────
+pyelftools>=0.30
+capstone>=5.0
+tree-sitter>=0.20
+tree-sitter-c>=0.20

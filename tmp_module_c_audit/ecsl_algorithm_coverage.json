@@ -1,0 +1,2800 @@
+{
+  "code_paths": [
+    "scripts/build_module_c_ecsl_slot_contracts.py",
+    "scripts/build_module_c_ecsl_candidates.py",
+    "scripts/pack_module_c_ecsl_training_manifest.py",
+    "scripts/audit_module_c_ecsl_global_decode_seed.py",
+    "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+    "scripts/run_module_c_ecsl_pipeline_local.py",
+    "scripts/inject_module_c_ecsl_source_projection_candidates.py",
+    "scripts/export_module_c_ecsl_v3_validation_tasks.py",
+    "scripts/run_module_c_ecsl_v3_differential_lite.py",
+    "scripts/export_module_c_ecsl_human_audit_tasks.py",
+    "scripts/pack_module_c_ecsl_human_audit_v3_results.py"
+  ],
+  "doc_md": "/Users/aurora/Documents/structlift/StrucLift_ModuleC_ECSL_方案.md",
+  "items": [
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "SLOT_SCHEMA": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 29,
+            "text": "SLOT_SCHEMA = \"SemanticSlotLite.v0\""
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1199,
+            "text": "\"schema\": SLOT_SCHEMA,"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 51,
+            "text": "\"keywords\": [\"SLOT_SCHEMA\", \"SemanticSlotLite.v0\", \"semantic_slots\"],"
+          },
+          {
+            "file": "scripts/run_module_c_ecsl_v3_differential_lite.py",
+            "line": 47,
+            "text": "SLOT_SCHEMA = \"ModuleC.ECSL.AutomaticV3LiteSlotEvidence.v0\""
+          },
+          {
+            "file": "scripts/run_module_c_ecsl_v3_differential_lite.py",
+            "line": 1014,
+            "text": "\"schema\": SLOT_SCHEMA,"
+          }
+        ],
+        "SemanticSlotLite.v0": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 29,
+            "text": "SLOT_SCHEMA = \"SemanticSlotLite.v0\""
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 51,
+            "text": "\"keywords\": [\"SLOT_SCHEMA\", \"SemanticSlotLite.v0\", \"semantic_slots\"],"
+          }
+        ],
+        "semantic_slots": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1284,
+            "text": "semantic_slots = ["
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1324,
+            "text": "\"semantic_slots\": semantic_slots,"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1326,
+            "text": "\"slot_count\": len(semantic_slots),"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1327,
+            "text": "\"all_slots_lowered\": bool(lowerer.get(\"success\")) and len(semantic_slots) == safe_int(lowerer.get(\"lowered_slot_count\")),"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1328,
+            "text": "\"slot_type_dist\": dict(Counter(slot.get(\"slot_type\") for slot in semantic_slots)),"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1329,
+            "text": "\"module_b_slot_kind_dist\": dict(Counter(slot.get(\"module_b_slot_kind\") for slot in semantic_slots)),"
+          }
+        ]
+      },
+      "expected_status": "implemented",
+      "id": "semantic_slot_schema",
+      "keywords": [
+        "SLOT_SCHEMA",
+        "SemanticSlotLite.v0",
+        "semantic_slots"
+      ],
+      "notes": "O0/Lite schema is implemented without source AST projection.",
+      "phase": "Phase 1",
+      "requirement": "SemanticSlot schema for skeleton-compatible slot contracts",
+      "status": "implemented"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "SkeletonCFG.o0_metadata_only": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1312,
+            "text": "\"schema\": \"SkeletonCFG.o0_metadata_only\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 59,
+            "text": "\"keywords\": [\"skeleton_cfg\", \"SkeletonCFG.o0_metadata_only\", \"renderer_policy\"],"
+          }
+        ],
+        "renderer_policy": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1321,
+            "text": "\"renderer_policy\": \"preserve_all_non_placeholder_skeleton_tokens\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 59,
+            "text": "\"keywords\": [\"skeleton_cfg\", \"SkeletonCFG.o0_metadata_only\", \"renderer_policy\"],"
+          }
+        ],
+        "skeleton_cfg": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1311,
+            "text": "\"skeleton_cfg\": {"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1344,
+            "text": "lowerer = q(record, \"skeleton_cfg\", \"lowerer\") or {}"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 55,
+            "text": "\"id\": \"skeleton_cfg_schema\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 59,
+            "text": "\"keywords\": [\"skeleton_cfg\", \"SkeletonCFG.o0_metadata_only\", \"renderer_policy\"],"
+          }
+        ]
+      },
+      "expected_status": "implemented",
+      "id": "skeleton_cfg_schema",
+      "keywords": [
+        "skeleton_cfg",
+        "SkeletonCFG.o0_metadata_only",
+        "renderer_policy"
+      ],
+      "notes": "Metadata-only CFG wrapper exists; full AST parser is not needed for O0.",
+      "phase": "Phase 1",
+      "requirement": "SkeletonCFG schema around fixed Module-B skeleton",
+      "status": "implemented"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "LOWERER_SCHEMA": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 30,
+            "text": "LOWERER_SCHEMA = \"SkeletonSlotLowerer.v0\""
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 621,
+            "text": "\"schema\": LOWERER_SCHEMA,"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 674,
+            "text": "\"schema\": LOWERER_SCHEMA,"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 67,
+            "text": "\"keywords\": [\"LOWERER_SCHEMA\", \"SkeletonSlotLowerer.v0\", \"lower_skeleton_slots\"],"
+          }
+        ],
+        "SkeletonSlotLowerer.v0": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 30,
+            "text": "LOWERER_SCHEMA = \"SkeletonSlotLowerer.v0\""
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 67,
+            "text": "\"keywords\": [\"LOWERER_SCHEMA\", \"SkeletonSlotLowerer.v0\", \"lower_skeleton_slots\"],"
+          }
+        ],
+        "lower_skeleton_slots": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 609,
+            "text": "def lower_skeleton_slots(skeleton: str, slots: Sequence[Dict[str, Any]]) -> Dict[str, Any]:"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1279,
+            "text": "lowerer = lower_skeleton_slots(skeleton, slots)"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 67,
+            "text": "\"keywords\": [\"LOWERER_SCHEMA\", \"SkeletonSlotLowerer.v0\", \"lower_skeleton_slots\"],"
+          }
+        ]
+      },
+      "expected_status": "implemented",
+      "id": "skeleton_slot_lowerer",
+      "keywords": [
+        "LOWERER_SCHEMA",
+        "SkeletonSlotLowerer.v0",
+        "lower_skeleton_slots"
+      ],
+      "notes": "Text-based lowerer preserves Module-B skeleton tokens.",
+      "phase": "Phase 1",
+      "requirement": "Skeleton Slot Lowerer from placeholders to anchors",
+      "status": "implemented"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "def grammar_check": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 782,
+            "text": "def grammar_check(text: str, grammar_contract: Dict[str, Any]) -> Dict[str, Any]:"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 75,
+            "text": "\"keywords\": [\"def grammar_check\", \"def local_c_stub_check\", \"parser_type_local_stub_validation\"],"
+          }
+        ],
+        "def local_c_stub_check": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 744,
+            "text": "def local_c_stub_check(text: str, category: str, *, cc: Optional[str]) -> Dict[str, Any]:"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 75,
+            "text": "\"keywords\": [\"def grammar_check\", \"def local_c_stub_check\", \"parser_type_local_stub_validation\"],"
+          }
+        ],
+        "parser_type_local_stub_validation": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 849,
+            "text": "\"name\": \"parser_type_local_stub_validation\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 75,
+            "text": "\"keywords\": [\"def grammar_check\", \"def local_c_stub_check\", \"parser_type_local_stub_validation\"],"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 179,
+            "text": "\"keywords\": [\"v0_parser_type_check\", \"local_c_stub_check\", \"parser_type_local_stub_validation\"],"
+          }
+        ]
+      },
+      "expected_status": "implemented",
+      "id": "slot_grammar_checker",
+      "keywords": [
+        "def grammar_check",
+        "def local_c_stub_check",
+        "parser_type_local_stub_validation"
+      ],
+      "notes": "Local V0 now combines slot grammar with a compiler-backed C stub when --v0-cc is available.",
+      "phase": "Phase 1 / Phase 3",
+      "requirement": "Slot grammar checker",
+      "status": "implemented"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "preserve_all_non_placeholder_skeleton_tokens": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1321,
+            "text": "\"renderer_policy\": \"preserve_all_non_placeholder_skeleton_tokens\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 83,
+            "text": "\"keywords\": [\"render_slot_candidate\", \"skeleton_preservation_check\", \"preserve_all_non_placeholder_skeleton_tokens\"],"
+          }
+        ],
+        "render_slot_candidate": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 874,
+            "text": "def render_slot_candidate(skeleton: str, slot_id: str, text: str, category: str) -> Dict[str, Any]:"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 927,
+            "text": "rendered = render_slot_candidate(skeleton, slot_id, text, category)"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1478,
+            "text": "rendered = render_slot_candidate(skeleton, slot_id, text, category)"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 83,
+            "text": "\"keywords\": [\"render_slot_candidate\", \"skeleton_preservation_check\", \"preserve_all_non_placeholder_skeleton_tokens\"],"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 187,
+            "text": "\"keywords\": [\"skeleton_preservation_cfg_successor\", \"render_slot_candidate\", \"successor_evidence\"],"
+          }
+        ],
+        "skeleton_preservation_check": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 920,
+            "text": "def skeleton_preservation_check("
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2108,
+            "text": "preservation = skeleton_preservation_check(skeleton, slot, text)"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 83,
+            "text": "\"keywords\": [\"render_slot_candidate\", \"skeleton_preservation_check\", \"preserve_all_non_placeholder_skeleton_tokens\"],"
+          }
+        ]
+      },
+      "expected_status": "implemented",
+      "id": "deterministic_renderer",
+      "keywords": [
+        "render_slot_candidate",
+        "skeleton_preservation_check",
+        "preserve_all_non_placeholder_skeleton_tokens"
+      ],
+      "notes": "Renderer is used for V1 smoke validation and decode-seed audit.",
+      "phase": "Phase 1 / Phase 5",
+      "requirement": "Deterministic renderer preserving non-placeholder skeleton tokens",
+      "status": "implemented"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "do_not_compare": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 915,
+            "text": "\"do_not_compare\": ["
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 91,
+            "text": "\"keywords\": [\"observable_semantics_contract\", \"observable_items\", \"do_not_compare\"],"
+          }
+        ],
+        "observable_items": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 914,
+            "text": "\"observable_items\": observations,"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 91,
+            "text": "\"keywords\": [\"observable_semantics_contract\", \"observable_items\", \"do_not_compare\"],"
+          }
+        ],
+        "observable_semantics_contract": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 900,
+            "text": "def observable_semantics_contract(slot_type: str, sem_type: str) -> Dict[str, Any]:"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1216,
+            "text": "\"observable_semantics\": observable_semantics_contract(module_b_slot_kind, sem_type),"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 91,
+            "text": "\"keywords\": [\"observable_semantics_contract\", \"observable_items\", \"do_not_compare\"],"
+          }
+        ]
+      },
+      "expected_status": "implemented",
+      "id": "observable_semantics",
+      "keywords": [
+        "observable_semantics_contract",
+        "observable_items",
+        "do_not_compare"
+      ],
+      "notes": "Observable items are declared; equivalence proof is V2/V3.",
+      "phase": "Phase 1",
+      "requirement": "Obs(slot) observable semantics contract",
+      "status": "implemented"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "binary_ir_status": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 978,
+            "text": "\"binary_ir_status\": \"partial_from_function_ir_and_slot_grounding\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 99,
+            "text": "\"keywords\": [\"unified_ir_contract\", \"source_teacher_ir_status\", \"binary_ir_status\", \"skeleton_ir_status\"],"
+          }
+        ],
+        "skeleton_ir_status": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 979,
+            "text": "\"skeleton_ir_status\": \"available_from_skeleton_slot_lowerer\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 99,
+            "text": "\"keywords\": [\"unified_ir_contract\", \"source_teacher_ir_status\", \"binary_ir_status\", \"skeleton_ir_status\"],"
+          }
+        ],
+        "source_teacher_ir_status": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 977,
+            "text": "\"source_teacher_ir_status\": \"KEEP_EXTERNAL_source_lowering_not_connected\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 99,
+            "text": "\"keywords\": [\"unified_ir_contract\", \"source_teacher_ir_status\", \"binary_ir_status\", \"skeleton_ir_status\"],"
+          }
+        ],
+        "unified_ir_contract": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 928,
+            "text": "def unified_ir_contract("
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1217,
+            "text": "\"unified_ir\": unified_ir_contract(slot={**slot, \"slot_type\": module_b_slot_kind}, sem_type=sem_type, region=region, data=data, effect=effect),"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 99,
+            "text": "\"keywords\": [\"unified_ir_contract\", \"source_teacher_ir_status\", \"binary_ir_status\", \"skeleton_ir_status\"],"
+          }
+        ]
+      },
+      "expected_status": "partial",
+      "id": "unified_ir_lite",
+      "keywords": [
+        "unified_ir_contract",
+        "source_teacher_ir_status",
+        "binary_ir_status",
+        "skeleton_ir_status"
+      ],
+      "notes": "Skeleton IR and partial binary refs exist; source lowering is explicitly KEEP_EXTERNAL.",
+      "phase": "Phase 1",
+      "requirement": "Unified IR lowering for source/binary/skeleton comparison",
+      "status": "partial"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "attention_mask_contract": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 983,
+            "text": "def attention_mask_contract(sem_type: str, region: Dict[str, Any], control: Dict[str, Any], data: Dict[str, Any]) -> Dict[str, Any]:"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1218,
+            "text": "\"attention_mask\": attention_mask_contract(sem_type, region, control, data),"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 103,
+            "text": "\"id\": \"attention_mask_contract\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 107,
+            "text": "\"keywords\": [\"attention_mask_contract\", \"region_bb\", \"boundary_bb\", \"dataflow_symbols\"],"
+          }
+        ],
+        "boundary_bb": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 997,
+            "text": "\"boundary_bb\": sorted(boundary),"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 107,
+            "text": "\"keywords\": [\"attention_mask_contract\", \"region_bb\", \"boundary_bb\", \"dataflow_symbols\"],"
+          }
+        ],
+        "dataflow_symbols": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 998,
+            "text": "\"dataflow_symbols\": sorted(str(x) for x in dataflow),"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 107,
+            "text": "\"keywords\": [\"attention_mask_contract\", \"region_bb\", \"boundary_bb\", \"dataflow_symbols\"],"
+          }
+        ],
+        "region_bb": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 996,
+            "text": "\"region_bb\": list(region.get(\"region_bbs\") or []),"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1148,
+            "text": "region_bbs = sorted(set(primary or context))"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1184,
+            "text": "\"region_bbs\": [f\"BB_{bb}\" for bb in region_bbs],"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1187,
+            "text": "\"covered_edges\": covered_edges(row, region_bbs, edge),"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1190,
+            "text": "\"edge_context\": edge_context(row, region_bbs),"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1191,
+            "text": "\"region_status\": \"grounded_to_module_b_bbs\" if (primary or context or edge) else \"missing_region_bbs\","
+          }
+        ]
+      },
+      "expected_status": "implemented",
+      "id": "attention_mask_contract",
+      "keywords": [
+        "attention_mask_contract",
+        "region_bb",
+        "boundary_bb",
+        "dataflow_symbols"
+      ],
+      "notes": "Region/boundary rings exist; dataflow ring becomes richer after V2 extraction.",
+      "phase": "Phase 1 / Phase 11",
+      "requirement": "Three-ring attention mask contract",
+      "status": "implemented"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "KEEP_EXTERNAL": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 977,
+            "text": "\"source_teacher_ir_status\": \"KEEP_EXTERNAL_source_lowering_not_connected\","
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 440,
+            "text": "return {name: unavailable_component(\"KEEP_EXTERNAL candidate has no generated text yet\") for name in MATCHING_COMPONENT_NAMES}"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 466,
+            "text": "\"reason\": \"KEEP_EXTERNAL candidate has no generated text to validate\","
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 485,
+            "text": "\"status\": \"KEEP_EXTERNAL\","
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 490,
+            "text": "\"status\": \"KEEP_EXTERNAL\","
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 495,
+            "text": "\"status\": \"KEEP_EXTERNAL\","
+          }
+        ],
+        "source_cfg": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 88,
+            "text": "EXTERNAL_KEEP_SOURCES = {\"source_cfg\", \"execution_trace\", \"llm_proposal\", \"self_training\"}"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1826,
+            "text": "def source_cfg_candidates(slot: Dict[str, Any]) -> List[Dict[str, Any]]:"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1830,
+            "text": "source=\"source_cfg\","
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1833,
+            "text": "requires=[\"source_code\", \"source_cfg\", \"source_ssa\", \"semantic_matcher\"],"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2059,
+            "text": "out.extend(source_cfg_candidates(slot))"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 111,
+            "text": "\"id\": \"source_cfg_ssa_candidate_extractor\","
+          }
+        ],
+        "source_cfg_candidates": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1826,
+            "text": "def source_cfg_candidates(slot: Dict[str, Any]) -> List[Dict[str, Any]]:"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2059,
+            "text": "out.extend(source_cfg_candidates(slot))"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 115,
+            "text": "\"keywords\": [\"source_cfg_candidates\", \"source_cfg\", \"source_ssa\", \"KEEP_EXTERNAL\", \"source_teacher_projection_fill\"],"
+          }
+        ],
+        "source_ssa": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1833,
+            "text": "requires=[\"source_code\", \"source_cfg\", \"source_ssa\", \"semantic_matcher\"],"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 115,
+            "text": "\"keywords\": [\"source_cfg_candidates\", \"source_cfg\", \"source_ssa\", \"KEEP_EXTERNAL\", \"source_teacher_projection_fill\"],"
+          }
+        ],
+        "source_teacher_projection_fill": [
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 115,
+            "text": "\"keywords\": [\"source_cfg_candidates\", \"source_cfg\", \"source_ssa\", \"KEEP_EXTERNAL\", \"source_teacher_projection_fill\"],"
+          },
+          {
+            "file": "scripts/inject_module_c_ecsl_source_projection_candidates.py",
+            "line": 154,
+            "text": "\"kind\": \"source_teacher_projection_fill\","
+          }
+        ]
+      },
+      "expected_status": "partial",
+      "id": "source_cfg_ssa_candidate_extractor",
+      "keywords": [
+        "source_cfg_candidates",
+        "source_cfg",
+        "source_ssa",
+        "KEEP_EXTERNAL",
+        "source_teacher_projection_fill"
+      ],
+      "notes": "Source CFG/SSA remains external, but concrete source-teacher projection candidates can now be injected as C2 candidates for downstream validators.",
+      "phase": "Phase 2",
+      "requirement": "Source CFG/SSA candidate extractor",
+      "status": "partial"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "block_binary_candidates": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1916,
+            "text": "def block_binary_candidates(slot: Dict[str, Any]) -> List[Dict[str, Any]]:"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2069,
+            "text": "out.extend(block_binary_candidates(slot))"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 123,
+            "text": "\"keywords\": [\"cond_binary_candidates\", \"block_binary_candidates\", \"source=\\\"binary_ir\\\"\", \"synthetic_binary_candidates\"],"
+          }
+        ],
+        "cond_binary_candidates": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1862,
+            "text": "def cond_binary_candidates(slot: Dict[str, Any]) -> List[Dict[str, Any]]:"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2067,
+            "text": "out.extend(cond_binary_candidates(slot))"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 123,
+            "text": "\"keywords\": [\"cond_binary_candidates\", \"block_binary_candidates\", \"source=\\\"binary_ir\\\"\", \"synthetic_binary_candidates\"],"
+          }
+        ],
+        "source=\"binary_ir\"": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1880,
+            "text": "source=\"binary_ir\","
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1925,
+            "text": "source=\"binary_ir\","
+          }
+        ],
+        "synthetic_binary_candidates": [
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 123,
+            "text": "\"keywords\": [\"cond_binary_candidates\", \"block_binary_candidates\", \"source=\\\"binary_ir\\\"\", \"synthetic_binary_candidates\"],"
+          },
+          {
+            "file": "scripts/run_module_c_ecsl_v3_differential_lite.py",
+            "line": 856,
+            "text": "def synthetic_binary_candidates(slot: Dict[str, Any]) -> List[Dict[str, Any]]:"
+          },
+          {
+            "file": "scripts/run_module_c_ecsl_v3_differential_lite.py",
+            "line": 945,
+            "text": "return slot, synthetic_binary_candidates(slot) + synthetic_reference_shape_candidates(slot, reference_text) + candidates"
+          }
+        ]
+      },
+      "expected_status": "partial",
+      "id": "binary_ir_candidate_extractor",
+      "keywords": [
+        "cond_binary_candidates",
+        "block_binary_candidates",
+        "source=\"binary_ir\"",
+        "synthetic_binary_candidates"
+      ],
+      "notes": "O1 candidates plus V3-lite synthetic binary candidates cover simple condition/control cases; block/effect synthesis remains partial.",
+      "phase": "Phase 2",
+      "requirement": "Binary IR candidate extractor",
+      "status": "partial"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "execution_trace_candidates": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1838,
+            "text": "def execution_trace_candidates(slot: Dict[str, Any]) -> List[Dict[str, Any]]:"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2060,
+            "text": "out.extend(execution_trace_candidates(slot))"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 131,
+            "text": "\"keywords\": [\"execution_trace_candidates\", \"test_inputs_or_traces\", \"trace_to_slot_observation_mapper\"],"
+          }
+        ],
+        "test_inputs_or_traces": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1845,
+            "text": "requires=[\"test_inputs_or_traces\", \"trace_to_slot_observation_mapper\"],"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 131,
+            "text": "\"keywords\": [\"execution_trace_candidates\", \"test_inputs_or_traces\", \"trace_to_slot_observation_mapper\"],"
+          }
+        ],
+        "trace_to_slot_observation_mapper": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1845,
+            "text": "requires=[\"test_inputs_or_traces\", \"trace_to_slot_observation_mapper\"],"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 131,
+            "text": "\"keywords\": [\"execution_trace_candidates\", \"test_inputs_or_traces\", \"trace_to_slot_observation_mapper\"],"
+          }
+        ]
+      },
+      "expected_status": "keep_external",
+      "id": "execution_trace_candidate_extractor",
+      "keywords": [
+        "execution_trace_candidates",
+        "test_inputs_or_traces",
+        "trace_to_slot_observation_mapper"
+      ],
+      "notes": "Trace candidate hook is present; actual trace collection is external.",
+      "phase": "Phase 2",
+      "requirement": "Execution trace candidate extractor",
+      "status": "keep_external"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "REWRITE_KINDS": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 113,
+            "text": "REWRITE_KINDS = {"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1985,
+            "text": "spec = REWRITE_KINDS[kind]"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 139,
+            "text": "\"keywords\": [\"REWRITE_KINDS\", \"early_return_if_else\", \"while_loop_break\", \"switch_if_chain\", \"branch_inversion\"],"
+          }
+        ],
+        "branch_inversion": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 126,
+            "text": "\"branch_inversion\": {"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1330,
+            "text": "if rewrite_kind == \"branch_inversion\":"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1331,
+            "text": "warnings.append(\"branch_inversion_needs_successor_polarity_validation\")"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1896,
+            "text": "rewrite_kind=\"branch_inversion\","
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1909,
+            "text": "rewrite_kind=\"branch_inversion\","
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1998,
+            "text": "add(\"branch_inversion\")"
+          }
+        ],
+        "early_return_if_else": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 114,
+            "text": "\"early_return_if_else\": {"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2005,
+            "text": "add(\"early_return_if_else\")"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2013,
+            "text": "add(\"early_return_if_else\")"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 139,
+            "text": "\"keywords\": [\"REWRITE_KINDS\", \"early_return_if_else\", \"while_loop_break\", \"switch_if_chain\", \"branch_inversion\"],"
+          }
+        ],
+        "switch_if_chain": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 122,
+            "text": "\"switch_if_chain\": {"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2001,
+            "text": "add(\"switch_if_chain\")"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2008,
+            "text": "add(\"switch_if_chain\")"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 139,
+            "text": "\"keywords\": [\"REWRITE_KINDS\", \"early_return_if_else\", \"while_loop_break\", \"switch_if_chain\", \"branch_inversion\"],"
+          }
+        ],
+        "while_loop_break": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 118,
+            "text": "\"while_loop_break\": {"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2003,
+            "text": "add(\"while_loop_break\")"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2010,
+            "text": "add(\"while_loop_break\")"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 139,
+            "text": "\"keywords\": [\"REWRITE_KINDS\", \"early_return_if_else\", \"while_loop_break\", \"switch_if_chain\", \"branch_inversion\"],"
+          }
+        ]
+      },
+      "expected_status": "partial",
+      "id": "rewrite_candidate_generators",
+      "keywords": [
+        "REWRITE_KINDS",
+        "early_return_if_else",
+        "while_loop_break",
+        "switch_if_chain",
+        "branch_inversion"
+      ],
+      "notes": "Rewrite request objects are emitted; concrete text rewrites require external verifier-backed synthesis.",
+      "phase": "Phase 2 / Section 8",
+      "requirement": "Explicit rewrite candidate generators",
+      "status": "partial"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "external_llm_generation": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2042,
+            "text": "requires=[\"external_llm_generation\", \"validator_pass\"],"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 147,
+            "text": "\"keywords\": [\"llm_proposal_request\", \"external_llm_generation\", \"validator_pass\"],"
+          }
+        ],
+        "llm_proposal_request": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2017,
+            "text": "def llm_proposal_request(slot: Dict[str, Any]) -> Dict[str, Any]:"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2064,
+            "text": "out.append(llm_proposal_request(slot))"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2075,
+            "text": "out.append(llm_proposal_request(slot))"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2558,
+            "text": "emit_llm_requests=bool(args.emit_llm_proposal_requests),"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 147,
+            "text": "\"keywords\": [\"llm_proposal_request\", \"external_llm_generation\", \"validator_pass\"],"
+          },
+          {
+            "file": "scripts/run_module_c_ecsl_pipeline_local.py",
+            "line": 135,
+            "text": "if bool(args.emit_llm_proposal_requests):"
+          }
+        ],
+        "validator_pass": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1111,
+            "text": "\"label_policy\": \"candidate_prior_only_until_validator_passes\","
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2042,
+            "text": "requires=[\"external_llm_generation\", \"validator_pass\"],"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 147,
+            "text": "\"keywords\": [\"llm_proposal_request\", \"external_llm_generation\", \"validator_pass\"],"
+          }
+        ]
+      },
+      "expected_status": "keep_external",
+      "id": "llm_proposal_generator",
+      "keywords": [
+        "llm_proposal_request",
+        "external_llm_generation",
+        "validator_pass"
+      ],
+      "notes": "Prompt/request records are emitted; no model call is performed here.",
+      "phase": "Phase 2",
+      "requirement": "LLM proposal generator",
+      "status": "keep_external"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "self_training": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 88,
+            "text": "EXTERNAL_KEEP_SOURCES = {\"source_cfg\", \"execution_trace\", \"llm_proposal\", \"self_training\"}"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1850,
+            "text": "def self_training_candidates(slot: Dict[str, Any]) -> List[Dict[str, Any]]:"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1854,
+            "text": "source=\"self_training\","
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2061,
+            "text": "out.extend(self_training_candidates(slot))"
+          },
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 205,
+            "text": "\"self_training\": {"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 151,
+            "text": "\"id\": \"self_training_candidate_hook\","
+          }
+        ],
+        "self_training_candidates": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1850,
+            "text": "def self_training_candidates(slot: Dict[str, Any]) -> List[Dict[str, Any]]:"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2061,
+            "text": "out.extend(self_training_candidates(slot))"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 155,
+            "text": "\"keywords\": [\"self_training_candidates\", \"validated_model_prediction\", \"self_training\"],"
+          }
+        ],
+        "validated_model_prediction": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1855,
+            "text": "semantic_kind=\"validated_model_prediction\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 155,
+            "text": "\"keywords\": [\"self_training_candidates\", \"validated_model_prediction\", \"self_training\"],"
+          }
+        ]
+      },
+      "expected_status": "keep_training_stage",
+      "id": "self_training_candidate_hook",
+      "keywords": [
+        "self_training_candidates",
+        "validated_model_prediction",
+        "self_training"
+      ],
+      "notes": "Future model predictions can be routed in; current script does not self-train.",
+      "phase": "Phase 2 / Phase 4",
+      "requirement": "Self-training candidate hook",
+      "status": "keep_training_stage"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "MATCHING_COMPONENT_NAMES": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 140,
+            "text": "MATCHING_COMPONENT_NAMES = ["
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 440,
+            "text": "return {name: unavailable_component(\"KEEP_EXTERNAL candidate has no generated text yet\") for name in MATCHING_COMPONENT_NAMES}"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 163,
+            "text": "\"keywords\": [\"semantic_matching_report\", \"MATCHING_COMPONENT_NAMES\", \"cost_components\"],"
+          }
+        ],
+        "cost_components": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 564,
+            "text": "\"cost_components\": components,"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 163,
+            "text": "\"keywords\": [\"semantic_matching_report\", \"MATCHING_COMPONENT_NAMES\", \"cost_components\"],"
+          }
+        ],
+        "semantic_matching_report": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 537,
+            "text": "def semantic_matching_report("
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1753,
+            "text": "\"matching\": semantic_matching_report("
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1814,
+            "text": "\"matching\": semantic_matching_report("
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 163,
+            "text": "\"keywords\": [\"semantic_matching_report\", \"MATCHING_COMPONENT_NAMES\", \"cost_components\"],"
+          }
+        ]
+      },
+      "expected_status": "implemented",
+      "id": "semantic_match_cost",
+      "keywords": [
+        "semantic_matching_report",
+        "MATCHING_COMPONENT_NAMES",
+        "cost_components"
+      ],
+      "notes": "Cost object is auditable; unavailable semantic dimensions are marked not_available.",
+      "phase": "Phase 2 / Section 9",
+      "requirement": "Semantic matching cost matrix components",
+      "status": "implemented"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "KEEP_EXTERNAL_uot_solver_not_connected": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 572,
+            "text": "\"status\": \"KEEP_EXTERNAL_uot_solver_not_connected\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 171,
+            "text": "\"keywords\": [\"KEEP_EXTERNAL_uot_solver_not_connected\", \"unmatched_source_unit_policy\", \"unmatched_b_slot_policy\"],"
+          }
+        ],
+        "unmatched_b_slot_policy": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 575,
+            "text": "\"unmatched_b_slot_policy\": \"prior only until generated/validated\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 171,
+            "text": "\"keywords\": [\"KEEP_EXTERNAL_uot_solver_not_connected\", \"unmatched_source_unit_policy\", \"unmatched_b_slot_policy\"],"
+          }
+        ],
+        "unmatched_source_unit_policy": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 574,
+            "text": "\"unmatched_source_unit_policy\": \"may become weak candidate or be dropped\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 171,
+            "text": "\"keywords\": [\"KEEP_EXTERNAL_uot_solver_not_connected\", \"unmatched_source_unit_policy\", \"unmatched_b_slot_policy\"],"
+          }
+        ]
+      },
+      "expected_status": "keep_external",
+      "id": "uot_matching",
+      "keywords": [
+        "KEEP_EXTERNAL_uot_solver_not_connected",
+        "unmatched_source_unit_policy",
+        "unmatched_b_slot_policy"
+      ],
+      "notes": "UOT contract and policies are recorded; actual solver is not connected.",
+      "phase": "Phase 2 / Section 9",
+      "requirement": "Unbalanced Optimal Transport matching",
+      "status": "keep_external"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "local_c_stub_check": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 744,
+            "text": "def local_c_stub_check(text: str, category: str, *, cc: Optional[str]) -> Dict[str, Any]:"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 840,
+            "text": "stub = local_c_stub_check(text, category, cc=cc)"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 75,
+            "text": "\"keywords\": [\"def grammar_check\", \"def local_c_stub_check\", \"parser_type_local_stub_validation\"],"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 179,
+            "text": "\"keywords\": [\"v0_parser_type_check\", \"local_c_stub_check\", \"parser_type_local_stub_validation\"],"
+          }
+        ],
+        "parser_type_local_stub_validation": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 849,
+            "text": "\"name\": \"parser_type_local_stub_validation\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 75,
+            "text": "\"keywords\": [\"def grammar_check\", \"def local_c_stub_check\", \"parser_type_local_stub_validation\"],"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 179,
+            "text": "\"keywords\": [\"v0_parser_type_check\", \"local_c_stub_check\", \"parser_type_local_stub_validation\"],"
+          }
+        ],
+        "v0_parser_type_check": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 510,
+            "text": "\"status\": \"pending_v0_parser_type_checker\","
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 834,
+            "text": "def v0_parser_type_check(text: str, grammar_contract: Dict[str, Any], *, cc: Optional[str]) -> Dict[str, Any]:"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2106,
+            "text": "grammar = v0_parser_type_check(text, slot.get(\"grammar_contract\") or {}, cc=getattr(args, \"v0_cc\", None))"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 179,
+            "text": "\"keywords\": [\"v0_parser_type_check\", \"local_c_stub_check\", \"parser_type_local_stub_validation\"],"
+          }
+        ]
+      },
+      "expected_status": "implemented",
+      "id": "v0_validator",
+      "keywords": [
+        "v0_parser_type_check",
+        "local_c_stub_check",
+        "parser_type_local_stub_validation"
+      ],
+      "notes": "V0 implements parser/type/local-stub validation locally; if the compiler is missing it reports grammar-only pass instead of silent failure.",
+      "phase": "Phase 3",
+      "requirement": "V0 parser/type/slot grammar validator",
+      "status": "implemented"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "render_slot_candidate": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 874,
+            "text": "def render_slot_candidate(skeleton: str, slot_id: str, text: str, category: str) -> Dict[str, Any]:"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 927,
+            "text": "rendered = render_slot_candidate(skeleton, slot_id, text, category)"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1478,
+            "text": "rendered = render_slot_candidate(skeleton, slot_id, text, category)"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 83,
+            "text": "\"keywords\": [\"render_slot_candidate\", \"skeleton_preservation_check\", \"preserve_all_non_placeholder_skeleton_tokens\"],"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 187,
+            "text": "\"keywords\": [\"skeleton_preservation_cfg_successor\", \"render_slot_candidate\", \"successor_evidence\"],"
+          }
+        ],
+        "skeleton_preservation_cfg_successor": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 963,
+            "text": "\"name\": \"skeleton_preservation_cfg_successor\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 187,
+            "text": "\"keywords\": [\"skeleton_preservation_cfg_successor\", \"render_slot_candidate\", \"successor_evidence\"],"
+          }
+        ],
+        "successor_evidence": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 933,
+            "text": "successor_evidence = {"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 968,
+            "text": "\"successor_evidence\": successor_evidence,"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 187,
+            "text": "\"keywords\": [\"skeleton_preservation_cfg_successor\", \"render_slot_candidate\", \"successor_evidence\"],"
+          }
+        ]
+      },
+      "expected_status": "partial",
+      "id": "v1_validator",
+      "keywords": [
+        "skeleton_preservation_cfg_successor",
+        "render_slot_candidate",
+        "successor_evidence"
+      ],
+      "notes": "Skeleton immutability is implemented and successor metadata is audited; missing/polarity-ambiguous successor facts are demoted to needs-V3 rather than treated as proof.",
+      "phase": "Phase 3",
+      "requirement": "V1 skeleton/CFG successor preservation validator",
+      "status": "partial"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "fact_state": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 380,
+            "text": "fact_state = \"not_available\""
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 383,
+            "text": "fact_state = \"nonempty_real\" if availability[\"real_ssa_available\"] else \"nonempty_proxy\""
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 386,
+            "text": "fact_state = \"proven_empty_real\""
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 389,
+            "text": "fact_state = \"empty_proxy_needs_v3\""
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 392,
+            "text": "\"fact_state\": fact_state,"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 438,
+            "text": "fact_state = \"not_available\""
+          }
+        ],
+        "needs_v3_data_contract_proxy_not_clean_v2": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1289,
+            "text": "warnings.append(\"needs_v3_data_contract_proxy_not_clean_v2\")"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 195,
+            "text": "\"keywords\": [\"v2_static_semantic_check\", \"fact_state\", \"needs_v3_data_contract_proxy_not_clean_v2\", \"ssa_liveout_readwrite_effect\"],"
+          }
+        ],
+        "ssa_liveout_readwrite_effect": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1446,
+            "text": "\"ssa_liveout_readwrite_effect\","
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2092,
+            "text": "\"ssa_liveout_readwrite_effect\","
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2119,
+            "text": "\"ssa_liveout_readwrite_effect\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 195,
+            "text": "\"keywords\": [\"v2_static_semantic_check\", \"fact_state\", \"needs_v3_data_contract_proxy_not_clean_v2\", \"ssa_liveout_readwrite_effect\"],"
+          }
+        ],
+        "v2_static_semantic_check": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1233,
+            "text": "def v2_static_semantic_check("
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2110,
+            "text": "v2 = v2_static_semantic_check("
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 195,
+            "text": "\"keywords\": [\"v2_static_semantic_check\", \"fact_state\", \"needs_v3_data_contract_proxy_not_clean_v2\", \"ssa_liveout_readwrite_effect\"],"
+          }
+        ]
+      },
+      "expected_status": "partial",
+      "id": "v2_validator",
+      "keywords": [
+        "v2_static_semantic_check",
+        "fact_state",
+        "needs_v3_data_contract_proxy_not_clean_v2",
+        "ssa_liveout_readwrite_effect"
+      ],
+      "notes": "V2 distinguishes real empty/nonempty facts from proxy or missing facts; proxy evidence can feed V3 tasks but is not clean C2 proof.",
+      "phase": "Phase 3",
+      "requirement": "V2 live-out/read-write/effect validator",
+      "status": "partial"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "DIAGNOSTIC_V3_ORACLE_TYPES": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 105,
+            "text": "DIAGNOSTIC_V3_ORACLE_TYPES = {"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1201,
+            "text": "if oracle_type in DIAGNOSTIC_V3_ORACLE_TYPES:"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 203,
+            "text": "\"keywords\": [\"v3_validation_check\", \"external_v3_jsonl\", \"v3_command\", \"V3ValidationTask\", \"DIAGNOSTIC_V3_ORACLE_TYPES\"],"
+          }
+        ],
+        "V3ValidationTask": [
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 203,
+            "text": "\"keywords\": [\"v3_validation_check\", \"external_v3_jsonl\", \"v3_command\", \"V3ValidationTask\", \"DIAGNOSTIC_V3_ORACLE_TYPES\"],"
+          },
+          {
+            "file": "scripts/export_module_c_ecsl_v3_validation_tasks.py",
+            "line": 26,
+            "text": "SCHEMA = \"ModuleC.ECSL.V3ValidationTask.v0\""
+          }
+        ],
+        "external_v3_jsonl": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2543,
+            "text": "external_v3_index = load_external_v3(args.external_v3_jsonl)"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 203,
+            "text": "\"keywords\": [\"v3_validation_check\", \"external_v3_jsonl\", \"v3_command\", \"V3ValidationTask\", \"DIAGNOSTIC_V3_ORACLE_TYPES\"],"
+          },
+          {
+            "file": "scripts/run_module_c_ecsl_pipeline_local.py",
+            "line": 147,
+            "text": "if args.external_v3_jsonl:"
+          },
+          {
+            "file": "scripts/run_module_c_ecsl_pipeline_local.py",
+            "line": 148,
+            "text": "cmd.extend([\"--external-v3-jsonl\", str(Path(args.external_v3_jsonl).expanduser().resolve())])"
+          },
+          {
+            "file": "scripts/inject_module_c_ecsl_source_projection_candidates.py",
+            "line": 203,
+            "text": "external_v3_jsonl=None,"
+          }
+        ],
+        "v3_command": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1561,
+            "text": "def run_v3_command("
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1569,
+            "text": "with tempfile.TemporaryDirectory(prefix=\"ecsl_v3_command_\") as tmp:"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1627,
+            "text": "errors=[] if promoted else [\"v3_command_failed_or_not_c3\"],"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1628,
+            "text": "reason=str(parsed.get(\"reason\") or parsed.get(\"status\") or (\"v3_command_semantic_pass\" if promoted else \"v3_command_missing_semantic_proof_or_not_c3\")),"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1681,
+            "text": "if args.v3_command:"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1682,
+            "text": "command_report = run_v3_command(str(args.v3_command), function_record, slot, cand, text)"
+          }
+        ],
+        "v3_validation_check": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1640,
+            "text": "def v3_validation_check("
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2132,
+            "text": "v3 = v3_validation_check(function_record, slot, cand, text, args, external_v3_index)"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 203,
+            "text": "\"keywords\": [\"v3_validation_check\", \"external_v3_jsonl\", \"v3_command\", \"V3ValidationTask\", \"DIAGNOSTIC_V3_ORACLE_TYPES\"],"
+          }
+        ]
+      },
+      "expected_status": "keep_external",
+      "id": "v3_validator",
+      "keywords": [
+        "v3_validation_check",
+        "external_v3_jsonl",
+        "v3_command",
+        "V3ValidationTask",
+        "DIAGNOSTIC_V3_ORACLE_TYPES"
+      ],
+      "notes": "External JSONL/command hook and task export are implemented; real full trace/symbolic/differential backend remains external. Source projection/V3-lite are rejected as hard V3 by default.",
+      "phase": "Phase 3",
+      "requirement": "V3 trace/symbolic/differential execution validator",
+      "status": "keep_external"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "HumanAuditTask": [
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 211,
+            "text": "\"keywords\": [\"HumanAuditTask\", \"human_audit_pass\", \"HumanAuditedStrongEvidence\", \"evidence_kind\"],"
+          },
+          {
+            "file": "scripts/export_module_c_ecsl_human_audit_tasks.py",
+            "line": 32,
+            "text": "SCHEMA = \"ModuleC.ECSL.HumanAuditTask.v0\""
+          }
+        ],
+        "HumanAuditedStrongEvidence": [
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 211,
+            "text": "\"keywords\": [\"HumanAuditTask\", \"human_audit_pass\", \"HumanAuditedStrongEvidence\", \"evidence_kind\"],"
+          },
+          {
+            "file": "scripts/pack_module_c_ecsl_human_audit_v3_results.py",
+            "line": 20,
+            "text": "SCHEMA = \"ModuleC.ECSL.HumanAuditedStrongEvidence.v0\""
+          }
+        ],
+        "evidence_kind": [
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 211,
+            "text": "\"keywords\": [\"HumanAuditTask\", \"human_audit_pass\", \"HumanAuditedStrongEvidence\", \"evidence_kind\"],"
+          },
+          {
+            "file": "scripts/export_module_c_ecsl_human_audit_tasks.py",
+            "line": 166,
+            "text": "\"semantic_evidence_kind\": \"human_audit_pending\","
+          },
+          {
+            "file": "scripts/pack_module_c_ecsl_human_audit_v3_results.py",
+            "line": 89,
+            "text": "\"evidence_kind\": \"human_audit\","
+          },
+          {
+            "file": "scripts/pack_module_c_ecsl_human_audit_v3_results.py",
+            "line": 129,
+            "text": "\"evidence_kind\": \"human_audit\","
+          }
+        ],
+        "human_audit_pass": [
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 211,
+            "text": "\"keywords\": [\"HumanAuditTask\", \"human_audit_pass\", \"HumanAuditedStrongEvidence\", \"evidence_kind\"],"
+          },
+          {
+            "file": "scripts/export_module_c_ecsl_human_audit_tasks.py",
+            "line": 12,
+            "text": "2. Copy/edit the JSONL rows as verdicts, setting ``human_audit_pass=true`` for"
+          },
+          {
+            "file": "scripts/export_module_c_ecsl_human_audit_tasks.py",
+            "line": 152,
+            "text": "\"human_audit_pass\": False,"
+          },
+          {
+            "file": "scripts/export_module_c_ecsl_human_audit_tasks.py",
+            "line": 158,
+            "text": "\"audit_instruction\": \"Set human_audit_pass=true and hard_ce_allowed=true only if this slot fill is semantically correct for the fixed skeleton; edit target_text if needed.\","
+          },
+          {
+            "file": "scripts/pack_module_c_ecsl_human_audit_v3_results.py",
+            "line": 8,
+            "text": "``human_audit_pass`` and ``hard_ce_allowed`` are true."
+          },
+          {
+            "file": "scripts/pack_module_c_ecsl_human_audit_v3_results.py",
+            "line": 53,
+            "text": "strict_true(row.get(\"human_audit_pass\"))"
+          }
+        ]
+      },
+      "expected_status": "implemented",
+      "id": "human_semantic_audit_workflow",
+      "keywords": [
+        "HumanAuditTask",
+        "human_audit_pass",
+        "HumanAuditedStrongEvidence",
+        "evidence_kind"
+      ],
+      "notes": "Human audit can promote reviewed slot fills into hard SFT evidence; it is reported separately from automatic V3.",
+      "phase": "Phase 3",
+      "requirement": "Manual semantic audit path for strong slot evidence when automatic V3 backend is unavailable",
+      "status": "implemented"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "TIER_WEIGHT": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 44,
+            "text": "TIER_WEIGHT = {\"C0\": 0.0, \"C1\": 0.0, \"C2\": 0.2, \"C3\": 0.5, \"C4\": 0.8, \"C5\": 1.0}"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2195,
+            "text": "\"confidence_weight\": TIER_WEIGHT[level],"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 219,
+            "text": "\"keywords\": [\"score_confidence\", \"confidence_level\", \"hard_ce_allowed\", \"TIER_WEIGHT\"],"
+          },
+          {
+            "file": "scripts/pack_module_c_ecsl_human_audit_v3_results.py",
+            "line": 22,
+            "text": "TIER_WEIGHT = {\"C3\": 0.5, \"C4\": 0.8, \"C5\": 1.0}"
+          },
+          {
+            "file": "scripts/pack_module_c_ecsl_human_audit_v3_results.py",
+            "line": 126,
+            "text": "\"confidence_weight\": TIER_WEIGHT.get(level, 0.5),"
+          }
+        ],
+        "confidence_level": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1202,
+            "text": "level = str(row.get(\"confidence_level\") or row.get(\"tier\") or \"C0\")"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1215,
+            "text": "level = str(row.get(\"confidence_level\") or row.get(\"tier\") or (\"C3\" if semantic_pass else \"C0\"))"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1223,
+            "text": "\"raw_confidence_level\": row.get(\"confidence_level\") or row.get(\"tier\"),"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1620,
+            "text": "level = str(parsed.get(\"confidence_level\") or parsed.get(\"tier\") or (\"C3\" if ok else \"C0\"))"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1634,
+            "text": "\"confidence_level\": level,"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2144,
+            "text": "\"confidence_level\": \"C0\","
+          }
+        ],
+        "hard_ce_allowed": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1064,
+            "text": "\"hard_ce_allowed\": False,"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1076,
+            "text": "\"hard_ce_allowed\": False,"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1088,
+            "text": "\"hard_ce_allowed\": False,"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1100,
+            "text": "\"hard_ce_allowed\": False,"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1112,
+            "text": "\"hard_ce_allowed\": False,"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1123,
+            "text": "\"hard_ce_allowed\": False,"
+          }
+        ],
+        "score_confidence": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2141,
+            "text": "def score_confidence(slot: Dict[str, Any], cand: Dict[str, Any], validation: Dict[str, Any]) -> Dict[str, Any]:"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2357,
+            "text": "cand[\"confidence\"] = score_confidence(slot, cand, validation)"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 219,
+            "text": "\"keywords\": [\"score_confidence\", \"confidence_level\", \"hard_ce_allowed\", \"TIER_WEIGHT\"],"
+          },
+          {
+            "file": "scripts/inject_module_c_ecsl_source_projection_candidates.py",
+            "line": 249,
+            "text": "confidence = cand_mod.score_confidence(slot, raw_cand, validation)"
+          }
+        ]
+      },
+      "expected_status": "implemented",
+      "id": "confidence_scorer",
+      "keywords": [
+        "score_confidence",
+        "confidence_level",
+        "hard_ce_allowed",
+        "TIER_WEIGHT"
+      ],
+      "notes": "C1 priors are kept out of hard CE; C2 comes from V2 and C3+ from V3 evidence.",
+      "phase": "Phase 3",
+      "requirement": "Confidence scorer C0-C5 with hard CE policy",
+      "status": "implemented"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "Return JSON with one fill": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2236,
+            "text": "\"Return JSON with one fill: {\\\"fills\\\":[{\\\"slot_id\\\":\\\"...\\\",\\\"text\\\":\\\"...\\\"}]}\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 227,
+            "text": "\"keywords\": [\"build_prompt\", \"slot_patch_json\", \"Return JSON with one fill\"],"
+          }
+        ],
+        "build_prompt": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2205,
+            "text": "def build_prompt(function_record: Dict[str, Any], slot: Dict[str, Any]) -> str:"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2282,
+            "text": "\"prompt\": build_prompt(function_record, slot),"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 227,
+            "text": "\"keywords\": [\"build_prompt\", \"slot_patch_json\", \"Return JSON with one fill\"],"
+          }
+        ],
+        "slot_patch_json": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2286,
+            "text": "\"completion_format\": \"slot_patch_json\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 227,
+            "text": "\"keywords\": [\"build_prompt\", \"slot_patch_json\", \"Return JSON with one fill\"],"
+          }
+        ]
+      },
+      "expected_status": "implemented",
+      "id": "module_c_input_output_format",
+      "keywords": [
+        "build_prompt",
+        "slot_patch_json",
+        "Return JSON with one fill"
+      ],
+      "notes": "Training record uses structured slot patch output rather than free full-function text.",
+      "phase": "Phase 4 / Section 11",
+      "requirement": "Module-C input prompt and structured slot-patch output",
+      "status": "implemented"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "confidence_weighted_multi_reference_sft": [
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 96,
+            "text": "\"type\": \"confidence_weighted_multi_reference_sft\","
+          },
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 183,
+            "text": "\"name\": \"confidence_weighted_multi_reference_sft\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 235,
+            "text": "\"keywords\": [\"confidence_weighted_multi_reference_sft\", \"normalize_reference_weights\", \"ecsl_training_manifest\"],"
+          }
+        ],
+        "ecsl_training_manifest": [
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 132,
+            "text": "manifest_path = out_dir / \"ecsl_training_manifest.json\""
+          },
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 133,
+            "text": "report_path = out_dir / \"ecsl_training_manifest_report.txt\""
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 32,
+            "text": "\"scripts/pack_module_c_ecsl_training_manifest.py\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 235,
+            "text": "\"keywords\": [\"confidence_weighted_multi_reference_sft\", \"normalize_reference_weights\", \"ecsl_training_manifest\"],"
+          },
+          {
+            "file": "scripts/run_module_c_ecsl_pipeline_local.py",
+            "line": 162,
+            "text": "\"scripts/pack_module_c_ecsl_training_manifest.py\","
+          }
+        ],
+        "normalize_reference_weights": [
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 55,
+            "text": "def normalize_reference_weights(refs: List[Dict[str, Any]]) -> List[Dict[str, Any]]:"
+          },
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 75,
+            "text": "refs = normalize_reference_weights(refs)"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 235,
+            "text": "\"keywords\": [\"confidence_weighted_multi_reference_sft\", \"normalize_reference_weights\", \"ecsl_training_manifest\"],"
+          }
+        ]
+      },
+      "expected_status": "implemented",
+      "id": "multi_reference_sft_manifest",
+      "keywords": [
+        "confidence_weighted_multi_reference_sft",
+        "normalize_reference_weights",
+        "ecsl_training_manifest"
+      ],
+      "notes": "Data packer is implemented; it does not run the trainer.",
+      "phase": "Phase 4",
+      "requirement": "Confidence-weighted multi-reference SFT records/manifest",
+      "status": "implemented"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "KEEP_TRAINING_STAGE": [
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 189,
+            "text": "\"status\": \"KEEP_TRAINING_STAGE\","
+          },
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 194,
+            "text": "\"status\": \"KEEP_TRAINING_STAGE\","
+          },
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 206,
+            "text": "\"status\": \"KEEP_TRAINING_STAGE\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 243,
+            "text": "\"keywords\": [\"latent_em\", \"KEEP_TRAINING_STAGE\", \"entropy floor\"],"
+          }
+        ],
+        "entropy floor": [
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 191,
+            "text": "\"guardrails\": [\"warm up SFT first\", \"use entropy floor\", \"cap confidence\", \"exclude C1/C0 from hard updates\"],"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 243,
+            "text": "\"keywords\": [\"latent_em\", \"KEEP_TRAINING_STAGE\", \"entropy floor\"],"
+          }
+        ],
+        "latent_em": [
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 188,
+            "text": "\"latent_em\": {"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 239,
+            "text": "\"id\": \"latent_em_plan\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 243,
+            "text": "\"keywords\": [\"latent_em\", \"KEEP_TRAINING_STAGE\", \"entropy floor\"],"
+          }
+        ]
+      },
+      "expected_status": "keep_training_stage",
+      "id": "latent_em_plan",
+      "keywords": [
+        "latent_em",
+        "KEEP_TRAINING_STAGE",
+        "entropy floor"
+      ],
+      "notes": "Manifest records the training-stage plan and guardrails.",
+      "phase": "Phase 4",
+      "requirement": "Latent EM optional plan",
+      "status": "keep_training_stage"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "Obs(slot)": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 923,
+            "text": "\"Obs(slot) defines what later validators must compare; O0 records the contract but does not prove equivalence.\""
+          },
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 203,
+            "text": "\"requirement\": \"different views must satisfy the same Obs(slot)\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 89,
+            "text": "\"requirement\": \"Obs(slot) observable semantics contract\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 251,
+            "text": "\"keywords\": [\"consistency_training\", \"views\", \"Obs(slot)\"],"
+          }
+        ],
+        "consistency_training": [
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 193,
+            "text": "\"consistency_training\": {"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 247,
+            "text": "\"id\": \"consistency_training_plan\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 251,
+            "text": "\"keywords\": [\"consistency_training\", \"views\", \"Obs(slot)\"],"
+          }
+        ],
+        "views": [
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 195,
+            "text": "\"views\": ["
+          },
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 203,
+            "text": "\"requirement\": \"different views must satisfy the same Obs(slot)\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 251,
+            "text": "\"keywords\": [\"consistency_training\", \"views\", \"Obs(slot)\"],"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 252,
+            "text": "\"notes\": \"Manifest records views and requirements; training loop is not implemented here.\","
+          }
+        ]
+      },
+      "expected_status": "keep_training_stage",
+      "id": "consistency_training_plan",
+      "keywords": [
+        "consistency_training",
+        "views",
+        "Obs(slot)"
+      ],
+      "notes": "Manifest records views and requirements; training loop is not implemented here.",
+      "phase": "Phase 4",
+      "requirement": "Consistency training plan",
+      "status": "keep_training_stage"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "C3/C4/C5": [
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 207,
+            "text": "\"promotion_rule\": \"only predictions validated at C3/C4/C5 may enter strong supervision\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 259,
+            "text": "\"keywords\": [\"self_training\", \"promotion_rule\", \"C3/C4/C5\"],"
+          },
+          {
+            "file": "scripts/export_module_c_ecsl_v3_validation_tasks.py",
+            "line": 129,
+            "text": "\"required_confidence_level\": \"C3/C4/C5\","
+          }
+        ],
+        "promotion_rule": [
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 207,
+            "text": "\"promotion_rule\": \"only predictions validated at C3/C4/C5 may enter strong supervision\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 259,
+            "text": "\"keywords\": [\"self_training\", \"promotion_rule\", \"C3/C4/C5\"],"
+          }
+        ],
+        "self_training": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 88,
+            "text": "EXTERNAL_KEEP_SOURCES = {\"source_cfg\", \"execution_trace\", \"llm_proposal\", \"self_training\"}"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1850,
+            "text": "def self_training_candidates(slot: Dict[str, Any]) -> List[Dict[str, Any]]:"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1854,
+            "text": "source=\"self_training\","
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2061,
+            "text": "out.extend(self_training_candidates(slot))"
+          },
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 205,
+            "text": "\"self_training\": {"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 151,
+            "text": "\"id\": \"self_training_candidate_hook\","
+          }
+        ]
+      },
+      "expected_status": "keep_training_stage",
+      "id": "self_training_plan",
+      "keywords": [
+        "self_training",
+        "promotion_rule",
+        "C3/C4/C5"
+      ],
+      "notes": "Promotion rule exists; actual iterative self-training is a later stage.",
+      "phase": "Phase 4",
+      "requirement": "Self-training plan",
+      "status": "keep_training_stage"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "candidate_table": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2317,
+            "text": "\"candidate_table\": table,"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_global_decode_seed.py",
+            "line": 82,
+            "text": "table = seed.get(\"candidate_table\") if isinstance(seed.get(\"candidate_table\"), dict) else {}"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_global_decode_seed.py",
+            "line": 142,
+            "text": "table = seed.get(\"candidate_table\") if isinstance(seed.get(\"candidate_table\"), dict) else {}"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 267,
+            "text": "\"keywords\": [\"decode_seed_record\", \"candidate_table\", \"global_rerank_features\"],"
+          }
+        ],
+        "decode_seed_record": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2294,
+            "text": "def decode_seed_record(function_record: Dict[str, Any], slot_candidate_sets: Sequence[Dict[str, Any]]) -> Dict[str, Any]:"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2409,
+            "text": "return candidate_record, train_records, decode_seed_record(function_record, slot_sets)"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 267,
+            "text": "\"keywords\": [\"decode_seed_record\", \"candidate_table\", \"global_rerank_features\"],"
+          }
+        ],
+        "global_rerank_features": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2318,
+            "text": "\"global_rerank_features\": ["
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 267,
+            "text": "\"keywords\": [\"decode_seed_record\", \"candidate_table\", \"global_rerank_features\"],"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 283,
+            "text": "\"keywords\": [\"compile_success\", \"effect_equivalence\", \"live_out_equivalence\", \"global_rerank_features\"],"
+          }
+        ]
+      },
+      "expected_status": "implemented",
+      "id": "global_decode_seed",
+      "keywords": [
+        "decode_seed_record",
+        "candidate_table",
+        "global_rerank_features"
+      ],
+      "notes": "Seed table exists; it is not the final ILP/beam solver.",
+      "phase": "Phase 5",
+      "requirement": "Per-slot k-candidate table for global decoding",
+      "status": "implemented"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "audit_module_c_ecsl_global_decode_seed": [
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 33,
+            "text": "\"scripts/audit_module_c_ecsl_global_decode_seed.py\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 275,
+            "text": "\"keywords\": [\"audit_module_c_ecsl_global_decode_seed\", \"render_top1\", \"remaining_placeholders\"],"
+          },
+          {
+            "file": "scripts/run_module_c_ecsl_pipeline_local.py",
+            "line": 176,
+            "text": "\"scripts/audit_module_c_ecsl_global_decode_seed.py\","
+          }
+        ],
+        "remaining_placeholders": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1459,
+            "text": "def fill_remaining_placeholders_with_stubs(rendered: str) -> str:"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1502,
+            "text": "stubbed = fill_remaining_placeholders_with_stubs(rendered)"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 1573,
+            "text": "candidate_path.write_text(fill_remaining_placeholders_with_stubs(rendered), encoding=\"utf-8\")"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_global_decode_seed.py",
+            "line": 106,
+            "text": "errors.append(\"remaining_placeholders=\" + \",\".join(remaining[:20]))"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_global_decode_seed.py",
+            "line": 149,
+            "text": "if \"remaining_placeholders\" in err:"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 275,
+            "text": "\"keywords\": [\"audit_module_c_ecsl_global_decode_seed\", \"render_top1\", \"remaining_placeholders\"],"
+          }
+        ],
+        "render_top1": [
+          {
+            "file": "scripts/audit_module_c_ecsl_global_decode_seed.py",
+            "line": 78,
+            "text": "def render_top1(seed: Dict[str, Any]) -> Dict[str, Any]:"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_global_decode_seed.py",
+            "line": 141,
+            "text": "result = render_top1(seed)"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 275,
+            "text": "\"keywords\": [\"audit_module_c_ecsl_global_decode_seed\", \"render_top1\", \"remaining_placeholders\"],"
+          }
+        ]
+      },
+      "expected_status": "partial",
+      "id": "global_rerank_audit",
+      "keywords": [
+        "audit_module_c_ecsl_global_decode_seed",
+        "render_top1",
+        "remaining_placeholders"
+      ],
+      "notes": "Top-1 deterministic render audit exists; full compile/execution reranker is external.",
+      "phase": "Phase 5",
+      "requirement": "Global decode/render smoke audit",
+      "status": "partial"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "compile_success": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2319,
+            "text": "\"compile_success\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 283,
+            "text": "\"keywords\": [\"compile_success\", \"effect_equivalence\", \"live_out_equivalence\", \"global_rerank_features\"],"
+          }
+        ],
+        "effect_equivalence": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2324,
+            "text": "\"effect_equivalence\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 283,
+            "text": "\"keywords\": [\"compile_success\", \"effect_equivalence\", \"live_out_equivalence\", \"global_rerank_features\"],"
+          }
+        ],
+        "global_rerank_features": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2318,
+            "text": "\"global_rerank_features\": ["
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 267,
+            "text": "\"keywords\": [\"decode_seed_record\", \"candidate_table\", \"global_rerank_features\"],"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 283,
+            "text": "\"keywords\": [\"compile_success\", \"effect_equivalence\", \"live_out_equivalence\", \"global_rerank_features\"],"
+          }
+        ],
+        "live_out_equivalence": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2323,
+            "text": "\"live_out_equivalence\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 283,
+            "text": "\"keywords\": [\"compile_success\", \"effect_equivalence\", \"live_out_equivalence\", \"global_rerank_features\"],"
+          }
+        ]
+      },
+      "expected_status": "keep_external",
+      "id": "full_function_validation",
+      "keywords": [
+        "compile_success",
+        "effect_equivalence",
+        "live_out_equivalence",
+        "global_rerank_features"
+      ],
+      "notes": "Feature slots are named in decode seed; compiler/execution harness is not run.",
+      "phase": "Phase 5",
+      "requirement": "Full-function compile/execution validation",
+      "status": "keep_external"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "KEEP_LATER_STAGE": [
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 210,
+            "text": "\"status\": \"KEEP_LATER_STAGE\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 291,
+            "text": "\"keywords\": [\"grpo_rl\", \"KEEP_LATER_STAGE\", \"Module C adapter/LoRA\"],"
+          }
+        ],
+        "Module C adapter/LoRA": [
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 186,
+            "text": "\"module_scope\": \"fine-tune Module C adapter/LoRA only; keep Modules A/B frozen\","
+          },
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 212,
+            "text": "\"trainable_scope\": \"Module C adapter/LoRA only; Modules A/B frozen\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 291,
+            "text": "\"keywords\": [\"grpo_rl\", \"KEEP_LATER_STAGE\", \"Module C adapter/LoRA\"],"
+          }
+        ],
+        "grpo_rl": [
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 209,
+            "text": "\"grpo_rl\": {"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 291,
+            "text": "\"keywords\": [\"grpo_rl\", \"KEEP_LATER_STAGE\", \"Module C adapter/LoRA\"],"
+          }
+        ]
+      },
+      "expected_status": "keep_training_stage",
+      "id": "grpo_reward_plan",
+      "keywords": [
+        "grpo_rl",
+        "KEEP_LATER_STAGE",
+        "Module C adapter/LoRA"
+      ],
+      "notes": "Manifest records the reward-stage constraints; no RL training loop is implemented.",
+      "phase": "Phase 5",
+      "requirement": "GRPO/RL reward plan",
+      "status": "keep_training_stage"
+    },
+    {
+      "doc_requirement_detected": true,
+      "evidence": {
+        "b_gate_report": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 484,
+            "text": "def b_gate_report(row: Dict[str, Any], lowerer_success: bool, contract_conflicts: Sequence[str]) -> Dict[str, Any]:"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1281,
+            "text": "b_gate = b_gate_report(row, bool(lowerer.get(\"success\")), contract_conflicts)"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 299,
+            "text": "\"keywords\": [\"b_gate_report\", \"strict_edge_preservation_ok\", \"slot_locality_ready\", \"contract_consistency_pass\"],"
+          }
+        ],
+        "contract_consistency_pass": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 499,
+            "text": "\"contract_consistency_pass\": len(contract_conflicts) == 0,"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 513,
+            "text": "\"contract_consistency_pass\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 299,
+            "text": "\"keywords\": [\"b_gate_report\", \"strict_edge_preservation_ok\", \"slot_locality_ready\", \"contract_consistency_pass\"],"
+          }
+        ],
+        "slot_locality_ready": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 495,
+            "text": "\"slot_locality_ready\": bool(st.get(\"slot_locality_ready\")),"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 509,
+            "text": "\"slot_locality_ready\","
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 530,
+            "text": "\"slot_locality_ready\": st.get(\"slot_locality_ready\"),"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1239,
+            "text": "\"slot_locality_ready\": bool(st.get(\"slot_locality_ready\")),"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 299,
+            "text": "\"keywords\": [\"b_gate_report\", \"strict_edge_preservation_ok\", \"slot_locality_ready\", \"contract_consistency_pass\"],"
+          }
+        ],
+        "strict_edge_preservation_ok": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 491,
+            "text": "\"strict_edge_preservation_ok\": bool(rep.get(\"strict_edge_preservation_ok\")),"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 505,
+            "text": "\"strict_edge_preservation_ok\","
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 524,
+            "text": "\"strict_edge_preservation_ok\": rep.get(\"strict_edge_preservation_ok\"),"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 299,
+            "text": "\"keywords\": [\"b_gate_report\", \"strict_edge_preservation_ok\", \"slot_locality_ready\", \"contract_consistency_pass\"],"
+          }
+        ]
+      },
+      "expected_status": "implemented",
+      "id": "b_gate",
+      "keywords": [
+        "b_gate_report",
+        "strict_edge_preservation_ok",
+        "slot_locality_ready",
+        "contract_consistency_pass"
+      ],
+      "notes": "Gate prevents failed B skeletons from becoming hard supervision.",
+      "phase": "Gate",
+      "requirement": "B skeleton reliability gate",
+      "status": "implemented"
+    },
+    {
+      "doc_requirement_detected": false,
+      "evidence": {
+        "curriculum_bucket": [
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 109,
+            "text": "def curriculum_bucket(item: Dict[str, Any]) -> str:"
+          },
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 153,
+            "text": "bucket = curriculum_bucket(item)"
+          },
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 154,
+            "text": "item[\"curriculum_bucket\"] = bucket"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 307,
+            "text": "\"keywords\": [\"curriculum_bucket\", \"curriculum_shards\", \"recommended_sequence\"],"
+          }
+        ],
+        "curriculum_shards": [
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 180,
+            "text": "\"curriculum_shards\": shard_paths,"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 307,
+            "text": "\"keywords\": [\"curriculum_bucket\", \"curriculum_shards\", \"recommended_sequence\"],"
+          }
+        ],
+        "recommended_sequence": [
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 215,
+            "text": "\"recommended_sequence\": ["
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 307,
+            "text": "\"keywords\": [\"curriculum_bucket\", \"curriculum_shards\", \"recommended_sequence\"],"
+          }
+        ]
+      },
+      "expected_status": "implemented",
+      "id": "curriculum_manifest",
+      "keywords": [
+        "curriculum_bucket",
+        "curriculum_shards",
+        "recommended_sequence"
+      ],
+      "notes": "Packer writes bucketed JSONL shards.",
+      "phase": "Curriculum",
+      "requirement": "Curriculum shards/manifest",
+      "status": "implemented"
+    },
+    {
+      "doc_requirement_detected": false,
+      "evidence": {
+        "bucket_dist": [
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 140,
+            "text": "\"bucket_dist\": Counter(),"
+          },
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 158,
+            "text": "stats[\"bucket_dist\"][bucket] += 1"
+          },
+          {
+            "file": "scripts/pack_module_c_ecsl_training_manifest.py",
+            "line": 238,
+            "text": "f\"bucket_dist = {stats['bucket_dist'].most_common()}\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 315,
+            "text": "\"keywords\": [\"ecsl_algorithm_coverage\", \"stats\", \"bucket_dist\", \"candidate_source_dist\"],"
+          }
+        ],
+        "candidate_source_dist": [
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2438,
+            "text": "stats[\"candidate_source_dist\"][str(src)] += 1"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2475,
+            "text": "\"candidate_source_dist\": Counter(),"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_candidates.py",
+            "line": 2516,
+            "text": "lines.append(f\"candidate_source_dist = {compact_counter(stats['candidate_source_dist'])}\")"
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 315,
+            "text": "\"keywords\": [\"ecsl_algorithm_coverage\", \"stats\", \"bucket_dist\", \"candidate_source_dist\"],"
+          }
+        ],
+        "ecsl_algorithm_coverage": [
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 34,
+            "text": "\"scripts/audit_module_c_ecsl_algorithm_coverage.py\","
+          },
+          {
+            "file": "scripts/audit_module_c_ecsl_algorithm_coverage.py",
+            "line": 315,
+            "text": "\"keywords\": [\"ecsl_algorithm_coverage\", \"stats\", \"bucket_dist\", \"candidate_source_dist\"],"
+          },
+          {
+            "file": "scripts/run_module_c_ecsl_pipeline_local.py",
+            "line": 94,
+            "text": "coverage_json = out_dir / \"ecsl_algorithm_coverage.json\""
+          },
+          {
+            "file": "scripts/run_module_c_ecsl_pipeline_local.py",
+            "line": 95,
+            "text": "coverage_txt = out_dir / \"ecsl_algorithm_coverage.txt\""
+          },
+          {
+            "file": "scripts/run_module_c_ecsl_pipeline_local.py",
+            "line": 193,
+            "text": "\"scripts/audit_module_c_ecsl_algorithm_coverage.py\","
+          }
+        ],
+        "stats": [
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1340,
+            "text": "def update_stats(stats: Dict[str, Any], record: Dict[str, Any]) -> None:"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1341,
+            "text": "stats[\"functions_total\"] += 1"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1346,
+            "text": "stats[\"functions_b_gate_pass\"] += 1"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1348,
+            "text": "stats[\"functions_lowerer_success\"] += 1"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1350,
+            "text": "stats[\"functions_all_slots_lowered\"] += 1"
+          },
+          {
+            "file": "scripts/build_module_c_ecsl_slot_contracts.py",
+            "line": 1352,
+            "text": "stats[\"functions_with_repair\"] += 1"
+          }
+        ]
+      },
+      "expected_status": "partial",
+      "id": "metrics_ablation_hooks",
+      "keywords": [
+        "ecsl_algorithm_coverage",
+        "stats",
+        "bucket_dist",
+        "candidate_source_dist"
+      ],
+      "notes": "Reports expose counts/distributions; full experimental ablation runner is not implemented.",
+      "phase": "Experiment",
+      "requirement": "Metrics and ablation hooks",
+      "status": "partial"
+    }
+  ],
+  "phase_dist": {
+    "Curriculum": 1,
+    "Experiment": 1,
+    "Gate": 1,
+    "Phase 1": 5,
+    "Phase 1 / Phase 11": 1,
+    "Phase 1 / Phase 3": 1,
+    "Phase 1 / Phase 5": 1,
+    "Phase 2": 4,
+    "Phase 2 / Phase 4": 1,
+    "Phase 2 / Section 8": 1,
+    "Phase 2 / Section 9": 2,
+    "Phase 3": 6,
+    "Phase 4": 4,
+    "Phase 4 / Section 11": 1,
+    "Phase 5": 4
+  },
+  "repo_root": "/Users/aurora/Documents/structlift",
+  "schema": "ModuleC.ECSL.AlgorithmCoverageAudit.v0",
+  "status_dist": {
+    "implemented": 16,
+    "keep_external": 5,
+    "keep_training_stage": 5,
+    "partial": 8
+  },
+  "total_items": 34,
+  "warnings": [
+    "V2 is a conservative local contract gate; real empty facts, proxy facts, and missing facts are reported separately.",
+    "V3-lite is diagnostic only by default; full trace/symbolic/differential coverage requires an external backend.",
+    "Compile smoke and source-teacher projection are not semantic V3 proof.",
+    "Human audit workflow can provide hard SFT evidence for reviewed slots, but it is not automatic V3.",
+    "LLM generation, actual SFT/EM/consistency/self-training/GRPO loops are not run by these builders.",
+    "Global decode audit is render-only unless a compiler/execution validator is supplied through the V3 hooks."
+  ]
+}
